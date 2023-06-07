@@ -220,3 +220,51 @@ $palette_1: (
     .sliderFW .sliderFW__item__bg img{object-fit: contain;}
   }
 }
+
+
+// SLIDES
+body.slides{
+  & #container{@include flex-container(row,wrap);}
+  & #main{ max-width: 100%;
+    &>.inside{min-height: 100%; display: flex; flex-direction: column; padding: 0; position: relative;}
+  }
+  &.active .loader{opacity: 0; visibility: hidden;}
+}
+.mod_article.slide{@include flex-container(row,wrap); flex-grow: 1; padding: 0; position: relative; margin-bottom: 0;
+  & .slide__img,
+  & .slide__content{flex-basis: 50%; flex-grow: 1; min-width: 50%; max-width: 100%; opacity: 1; visibility: visible; transition: opacity 0.4s;
+    @include media-max(md){min-width: 100%;}
+  }
+  & .slide__img{ display: flex; flex-direction: column; min-height: 90vh;
+    @include media-max(md){ min-height: 0 !important;
+      // position: absolute; z-index: -1; height: 100%; opacity: 0.3;
+    }
+    & figure{@extend %img-container;
+      flex-grow: 1; display: flex; flex-direction: column; margin-bottom: 0;
+      & img{flex-grow: 1; }
+    }
+  }
+  & .slide__content{padding: 5rem; display: flex; flex-direction: column; justify-content: center;
+    @include media-max(md){order:1; }
+    @include media-max(xxs){padding: 2rem; }
+    & .slide__content__pack{@include flex-container(row,wrap,center);
+      &>*{flex-basis: 50%; min-width: 250px; padding: 0 2rem; margin-bottom: 2rem; flex-grow:1;
+        & h3{margin-bottom: 1.5rem;}
+      }
+    }
+  }
+  &:not(.active){
+    &>*:not(.loader){opacity: 0; visibility: hidden;height: 0; min-height: 0;}
+  }
+}
+.p-x>.mod_article.slide{@extend .counter-x !optional;}
+
+// MEP
+.split-slide{gap: 0;
+  // .mod_article>&:first-child{@extend .counter-top !optional;}
+  // .mod_article>&:last-child{@extend .counter-bottom !optional;}
+  & .ce_image:not(.editorial){position: relative; position: absolute; top: 0;bottom: 0;left: 0;right: 0;
+    & figure{@extend %img-container !optional; position: absolute; top: 0;bottom: 0;left: 0;right: 0; margin-bottom: 0;}
+  }
+  & .item-grid{display: flex;justify-content: center;align-items: center; min-height: 86vh; overflow: hidden; position: relative; @extend .p-all-x2 !optional;}
+}
