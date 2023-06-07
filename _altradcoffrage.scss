@@ -1,3 +1,29 @@
+// LOGO
+#logo{width: 200px; padding: 1rem;
+  @include media-max(xs){width: 180px; padding: 0.5rem; }
+  @include media-max(xxs){width: 150px; }
+  @media (max-width: 370px) {width: 130px; }
+}
+
+// HEADER
+.headerFW.hover--background{
+  .headerFW__nav__inline{
+    >ul>li{ 
+      >*:not(ul){transition: background 0.4s;}
+      &.active, &.trail, &:hover{
+        >*:not(ul){
+          background: rgba($primary,0.8); color: contrastFW(color(white),rgba($primary,0.8));
+        }
+      }
+    }
+  }
+}
+
+// HERO
+.heroFW{}
+.heroFW__content {
+  &:not(.no-shadows){@extend .txt--extrud !optional;}
+}
 
 // SLIDER
 .ce_sliderStart{ margin-bottom: $spacing;
