@@ -46,6 +46,20 @@
   }
 }
 
+.sliderFW.preset--carousel{ @extend .nav--hidden !optional; position: relative;
+  .sliderFW__item{width: 60%; margin: 0 1rem; opacity: 0.5; transform:translateZ(-100px) scale(0.95); transition: all 0.6s;
+    &.active{opacity: 1;transform:translateZ(0px) scale(1);}
+    &:not(.active){ cursor: pointer;
+      & .modalFW__trigger{pointer-events: none;}
+    }
+  }
+  .sliderFW__container{width: auto; margin: auto 4rem; transform-style: preserve-3d; perspective: 1000px;
+    @include media-max(xxs){margin: auto 2rem;}
+  }
+  .sliderFW__arrow:after{border-color: color(greylight);}
+  .sliderFW__rail{align-items: center; transform-style: preserve-3d;}
+}
+
 
 // MOD_WEM_PORTFOLIO
 $palette_1: (
