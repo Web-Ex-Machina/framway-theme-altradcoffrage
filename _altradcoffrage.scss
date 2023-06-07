@@ -143,6 +143,12 @@ $palette_1: (
 }
 
 
+// COUNTUP LINE
+.countUpLine{@extend .p-all-x2,.w-full,.m-bottom !optional;
+  &:not([class*=bg-]){@extend .bg-primary !optional}
+  .countUpFW{@extend .p-all !optional;}
+}
+
 // PRODUCT PAGE
 .product__wrapper{@extend .counter-x !optional; display: flex;flex-wrap: wrap;
   .mod_article+&{@extend .counter-top !optional;}
