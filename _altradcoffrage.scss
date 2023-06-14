@@ -60,6 +60,10 @@
   .sliderFW__rail{align-items: center; transform-style: preserve-3d;}
 }
 
+.sliderFW.content--bottom{
+  .sliderFW__item__content{height: auto;top: auto;bottom: 0; padding: 2em !important; font-size: 0.8em; min-height: 160px; align-items: flex-start;}
+}
+
 
 // MOD_WEM_PORTFOLIO
 $palette_1: (
