@@ -25,6 +25,11 @@
   &:not(.no-shadows){@extend .txt--extrud !optional;}
 }
 
+.heroFW__subtitle{font-size: 1.2em; margin-bottom: 1em;}
+.heroFW__content__wrapper:has(.heroFW__subtitle){
+  .heroFW__title{line-height: 1;margin-bottom: 0;}
+}
+
 // SLIDER
 .ce_sliderStart{ margin-bottom: $spacing;
   @include media-max(xs){margin-bottom: $spacing/2;}
@@ -182,10 +187,17 @@ $palette_1: (
 }
 
 .mod_iso_nav{padding: $spacing; margin-bottom: -1rem; 
-  @include media-max(xs){padding: $spacing/2;}
+  padding: 0;
+  margin-bottom: 0;
+  @include media-max(xs){padding: $spacing/2;
+    padding: 0;
+  }
   .accordionFW & {padding: 0 0 $spacing/2 ;}
   & ul{@extend .reset !optional;
     // &.level_1{margin-right: 40px;}
+    &.inline{
+      >li{display: inline-block;}
+    }
     &>li{display: block;
       &>*{width: 100%;}
       &>ul{ padding-left: 6px; border-left: 2px solid red; 
@@ -203,10 +215,16 @@ $palette_1: (
   }
 }
 
-.mod_iso_productlist{ width: 100%;display: grid; grid-template-columns: 1fr 3fr;
+.mod_iso_productlist{ width: 100%;display: grid; 
+  grid-template-columns: 1fr 3fr;
+  grid-template-columns: 1fr;
   @include media-max(md){grid-template-columns: 1fr;}
-  .stickTop{position: sticky; top: clamp(100px,15vh,120px);  max-height: calc(100vh - clamp(100px,15vh,120px)); overflow: auto; z-index: 1;}
+  .stickTop{position: sticky; top: clamp(100px,15vh,120px);  max-height: calc(100vh - clamp(100px,15vh,120px)); overflow: auto; z-index: 1;
+    &:has(.mod_navigation ul.inline){overflow: visible;}
+  }
+  .product_list{margin-inline: -1rem; margin-top: 1rem;}
   .block-card__wrapper{box-shadow: none; padding: $spacing; background: transparent; transition: background 0.6s, color 0.4s;
+    padding: 1rem 1rem 2rem; border-radius: 2px;
     // @include media-max(xs){padding: $spacing/2;}
     &:hover,&.hover,&.active{background: $primary; color: color(white) !important;}
     &:before,
@@ -216,6 +234,7 @@ $palette_1: (
   .block-card__link{position: absolute;top: 0;left: 0;width: 100%;height: 100%;z-index: 1;}
 }
 
+.mod_breadcrumb{width: auto;}
 .mod_iso_productreader{
   .ce_downloads{
     ul{@extend .reset !optional;}
