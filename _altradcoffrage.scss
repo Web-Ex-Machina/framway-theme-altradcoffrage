@@ -70,6 +70,11 @@
 }
 
 
+.sliderFW__nav__item{
+  &:first-of-type:last-of-type{display: none;}
+}
+
+
 // MOD_WEM_PORTFOLIO
 $palette_1: (
   1 : #e86363,
@@ -223,10 +228,13 @@ $palette_1: (
     &:has(.mod_navigation ul.inline){overflow: visible;}
   }
   .product_list{margin-inline: -1rem; margin-top: 1rem;}
+  .block-card__title{color: $primary;}
   .block-card__wrapper{box-shadow: none; padding: $spacing; background: transparent; transition: background 0.6s, color 0.4s;
     padding: 1rem 1rem 2rem; border-radius: 2px;
     // @include media-max(xs){padding: $spacing/2;}
-    &:hover,&.hover,&.active{background: $primary; color: color(white) !important;}
+    &:hover,&.hover,&.active{background: $primary; color: color(white) !important;
+      .block-card__title{color: color(white);}
+    }
     &:before,
     &:after{content:none;}
   }
