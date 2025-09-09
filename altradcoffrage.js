@@ -29,4 +29,9 @@ $(function(){
 		$(this).addClass('active');
 	});
 	$('body.slides').addClass('active');
+
+
+	$('.mod_wem_portfolio_filters form').find('select,input').on('change',function(){
+		this.closest('form').submit()
+	})
 });
