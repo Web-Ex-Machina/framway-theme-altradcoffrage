@@ -299,3 +299,13 @@ body.slides{
   }
   & .item-grid{display: flex;justify-content: center;align-items: center; min-height: 86vh; overflow: hidden; position: relative; @extend .p-all-x2 !optional;}
 }
+
+
+ul.tags>li{
+  &:not([class*=bg-]){background: var(--primary);}
+  @each $key, $value in $colors{
+    &.bg-#{$key}{background: $value; 
+      &:not([class*=ft-]){color: contrastFW(body(font-color), $value);}
+    }
+  }
+}
