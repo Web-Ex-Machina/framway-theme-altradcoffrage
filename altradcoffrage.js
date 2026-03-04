@@ -33,5 +33,9 @@ $(function(){
 
 	$('.mod_wem_portfolio_filters form').find('select,input').on('change',function(){
 		this.closest('form').submit()
+	});
+
+	$('.mod_iso_super_sort_list .block-card .ellipsis:not([title])').each(function(){
+		this.setAttribute('title', this.innerText);
 	})
 });
