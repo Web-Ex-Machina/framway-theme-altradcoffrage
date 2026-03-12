@@ -309,3 +309,9 @@ ul.tags>li{
     }
   }
 }
+
+.tag{
+  &.sale          {--primary: #2A72B8;}
+  &.rent          {--primary: #E46E0C;}
+  &.sale-and-rent {--primary: #0B7333;}
+}
