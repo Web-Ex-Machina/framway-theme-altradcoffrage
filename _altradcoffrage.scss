@@ -315,3 +315,49 @@ ul.tags>li{
   &.rent          {--primary: #E46E0C;}
   &.sale-and-rent {--primary: #0B7333;}
 }
+
+
+form#satisfactionSurvey{
+  .splitForm__section{
+    // justify-items: center;
+    padding: $spacing 0;
+  }
+}
+
+
+%radio.radio--stars{
+  &+label{
+    margin: 0;
+    padding: 0;
+    aspect-ratio: 1;
+    width: 50px;
+    justify-items: center;
+    align-content: center;
+    font-size: 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    &:before{
+      content:"☆";
+      position: relative;
+      border: 0;
+      outline: 0;
+      margin: 0;
+      width: auto;
+      height: auto;
+      line-height: 1;
+      font-size: 45px;
+      grid-row: 1;
+      grid-column: 1;
+      translate: 0;
+    }
+    &:after{content: none}
+
+  }
+  &:has(~&:checked)+label,
+  &:checked+label{
+    &:before{content: "★"; color: var(--primary);}
+  }
+}
+
+
+

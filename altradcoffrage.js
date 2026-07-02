@@ -38,4 +38,26 @@ $(function(){
 	$('.mod_iso_super_sort_list .block-card .ellipsis:not([title])').each(function(){
 		this.setAttribute('title', this.innerText);
 	})
+
+
+
+	if ($('form#satisfactionSurvey').length) {
+		let inputs  = $('form#satisfactionSurvey .check-consent input');
+		let consent = $('form#satisfactionSurvey .consent');
+		inputs.on('change keyup',()=>{
+			console.log("checkin consent");
+			let hideConsent = true;
+			inputs.each((i,el)=>{
+				if (el.value != "")
+					hideConsent = false;
+			});
+			if (hideConsent){
+				consent.addClass('hidden');
+				consent.find('input[type=checkbox]').get(0).removeAttribute('required');
+			} else {
+				consent.removeClass('hidden');
+				consent.find('input[type=checkbox]').get(0).setAttribute('required',true);
+			}
+		}).trigger('change');
+	}
 });
