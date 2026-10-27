@@ -201,7 +201,7 @@ $palette_1: (
       border: 0;
       background: white;
       border-radius: 25px;
-      @extend %shdw;
+      @include shdw();
       --shdw-color: #{rgba(color(blacklighter),0.35)};
     }
     .accordionFW__content{
